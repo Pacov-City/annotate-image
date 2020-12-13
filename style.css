@@ -1,0 +1,86 @@
+html,body {
+    width:100%;
+    height: 100%;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.vbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.hbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.fixed {
+    flex: 0;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flex2 {
+    flex: 2;
+}
+
+.a-stretch {
+    align-content: stretch;
+}
+
+.j-stretch {
+    justify-content: stretch;
+}
+
+
+.a-spcbtwn {
+    align-content: space-between;
+}
+
+.pad {
+    padding: 5px;
+}
+
+.bord {
+    border: thin gray solid;
+    border-radius: 4px;
+    margin: 3px;
+}
+
+#list {
+    list-style-type: none;
+    list-style: none;
+}
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+.list-item {
+    cursor: pointer;
+    padding: 2px;
+}
+
+.selected {
+    border: black thick solid;
+}
+
+#display {
+    max-width: 100%;
+}
+
+.small {
+    font-size: 75%;
+}
+
+.bg1 {
+    background-color: rgb(185, 183, 183);
+}
+
+.bg2 {
+    background-color: white;
+}

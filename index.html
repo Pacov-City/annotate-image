@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="hbox pad">
+    <div id="img" class="flex1 pad vbox">
+      <div id="name" class="fixed">###name</div>
+      <div class="flex1 scroll-y">
+        <img id="display" src="https://picsum.photos/800/600" />
+      </div>
+    </div>
+    <div id="form" class="vbox fixed a-spcbtwn pad">
+      <div class="fixed pad bord">
+        <input id="select-files" type="file" multiple />
+      </div>
+      <div id="detail" class="flex1 pad bord vbox">
+        <section class="vbox fixed">
+          <small class="fixed">Název:</small>
+          <div class="hbox">
+            <input id="txtName" type="text" class="flex1 edit" />
+            <button class="fixed pad" id="btnFromPrev" title="prevzit z predchoziho">^</button>
+          </div>
+        </section>
+        <section class="hbox fixed">
+          <section class="vbox flex1">
+            <small class="fixed">Pořadí:</small>
+            <input id="txtOrder" type="number" class="fixed edit" />  
+          </section>
+          <section class="vbox flex2">
+            <small class="fixed">Datum:</small>
+            <input id="txtDate" type="date" class="fixed edit" />  
+          </section>
+        </section>
+        <section class="vbox flex1">
+          <small class="fixed">Souhrn:</small>
+          <textarea id="txtSummary" class="flex1"></textarea>
+        </section>
+        <section class="hbox fixed j-stretch">
+            <button class="flex1" id="btnPrev">Predchozi</button>
+            <button class="flex1" id="btnNext">Dalsi</button>            
+        </section>
+      </div>
+      <ul id="list" class="flex1 bord pad scroll-y"></ul>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
