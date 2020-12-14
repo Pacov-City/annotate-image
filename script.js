@@ -55,6 +55,21 @@ window.addEventListener("load", () => {
     document.getElementById("txtSummary")
     .addEventListener("change", () => updateData());
 
+    console.log("registering shortcut")
+    document.addEventListener("keyup",(evt)=>{
+        console.log(evt)
+        if (evt.key==="PageDown"){
+            next()
+            evt.preventDefault()
+        }
+        if (evt.key==="PageUp"){
+            prev()
+            evt.preventDefault()
+        }
+        // if (evt.keyCode==83 && (evt.ctrlKey)){
+        //     evt.preventDefault();
+        // }
+    })
 
     populateList();
   }
@@ -87,6 +102,7 @@ window.addEventListener("load", () => {
           <div class="">${data[names[idx]].name}</div>
           <div class="small">${names[idx]} ${data[names[idx]].order||""} ${data[names[idx]].date||""}</div>
         </div>
+        <div title="Delete!" data-name="${names[idx]}" id="del-${names[idx]}" class="pad">🗑️</div>
       </div>
       `
       //li.textContent = `${idx} ${names[idx]} ${files[names[idx]]?'🖼️':""}`;
@@ -99,6 +115,10 @@ window.addEventListener("load", () => {
         let idx = Number(li.dataset.idx)
         setSelected(name, idx);
       });
+      //handle delete event
+      document.getElementById(`del-${names[idx]}`).addEventListener("click",(ev)=>{
+        deleteItem(ev.target.dataset.name)
+      })
     }
   }
 
@@ -111,6 +131,7 @@ window.addEventListener("load", () => {
     selectedIdx = idx;
     const newSelected = document.getElementById(id(selected));
     newSelected.classList.add("selected");
+    newSelected.scrollIntoView()
     document.getElementById("txtName").focus();
     document.getElementById("name").textContent=name
 
@@ -181,4 +202,19 @@ window.addEventListener("load", () => {
       nameElm.dispatchEvent(new Event('change'))
   }
 
+  function deleteItem(name) {
+      console.log("deleting")
+      if (selected==name) {
+          alert("selected can't be deleted")
+          return
+      }
+      if (confirm(`Opravdu smazat ${name}?`)){
+        delete data[name]
+        delete files[name]
+        sortedNames=sortedNames.filter((el)=>el!==name)
+        store()
+        populateList()  
+      }
+      preventDefault()
+  }
 });
