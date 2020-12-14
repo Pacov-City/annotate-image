@@ -49,6 +49,9 @@ window.addEventListener("load", () => {
     document.getElementById("txtOrder")
     .addEventListener("change", () => updateData());
 
+    document.getElementById("txtDate")
+    .addEventListener("change", () => updateData());
+
     document.getElementById("txtSummary")
     .addEventListener("change", () => updateData());
 
